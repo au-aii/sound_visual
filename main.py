@@ -56,7 +56,7 @@ class PitchAnalyzerApp:
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.root)
         self.canvas.get_tk_widget().pack(fill=tk.BOTH, expand=True)
 
-    def select_file_and_analyze(self):
+    def select_file(self):
         file_path = filedialog.askopenfilename(
             title="解析したい音声ファイルを選択",
             filetypes=[("Audio Files", "*.mp3 *.wav")]
