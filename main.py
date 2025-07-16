@@ -40,7 +40,7 @@ class PitchAnalyzerApp:
         heder = ttk.Frame(self.root, padding="10")
         heder.pack(fill=tk.X)
 
-        self.load_button = ttk.Button(heder, text="音声ファイルを開く", command=self.select_file_and_analyze)
+        self.load_button = ttk.Button(heder, text="音声ファイルを開く", command=self.select_file)
         self.load_button.pack(side=tk.LEFT, padx=(5))
 
         # 再生ボタンを一つに統一
