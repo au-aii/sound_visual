@@ -41,7 +41,7 @@ class PitchAnalyzerApp:
         heder.pack(fill=tk.X)
 
         self.load_button = ttk.Button(heder, text="音声ファイルを開く", command=self.select_file_and_analyze)
-        self.load_button.pack(side=tk.LEFT, padx=(0, 10))
+        self.load_button.pack(side=tk.LEFT, padx=(5))
 
         # 再生ボタンを一つに統一
         self.play_button = ttk.Button(heder, text="再生", command=self.play_tts, state="disabled")
@@ -50,7 +50,7 @@ class PitchAnalyzerApp:
         self.file_label = ttk.Label(heder, text="ファイルが選択されていません")
         self.file_label.pack(side=tk.LEFT, padx=10, fill=tk.X, expand=True)
 
-        # --- グラフ描画 canvas ---
+        # --- graph canvas ---
         self.fig = Figure(figsize=(12, 5), dpi=100)
         self.ax = self.fig.add_subplot(111)
         self.canvas = FigureCanvasTkAgg(self.fig, master=self.root)
