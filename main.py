@@ -105,17 +105,14 @@ class PitchAnalyzerApp:
             self.play_button.config(state="disabled")
 
     def play_tts(self):
-        """テキスト読み上げを別スレッドで実行する"""
         if not self.word: return
         self.play_button.config(state="disabled")
         threading.Thread(target=self._play_tts_task).start()
 
     def _play_tts_task(self):
-        """【内部用】pyttsx3での読み上げタスク"""
         try:
             engine = pyttsx3.init()
             
-            # 読上速度調整
             rate = engine.getProperty('rate')
             engine.setProperty('rate', rate - 50)
             
@@ -124,7 +121,6 @@ class PitchAnalyzerApp:
         except Exception as e:
             print(f"TTS再生エラー: {e}")
         finally:
-            # GUIの更新はメインスレッドに安全に依頼します。
             self.root.after(0, lambda: self.play_button.config(state="normal"))
 
     def get_phonetic_transcription(self, word):
