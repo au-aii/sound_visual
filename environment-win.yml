@@ -9,8 +9,10 @@ dependencies:
   - numpy
   - scipy
   - nltk
-  - pyttsx3
   - pip
   - pip:
       - textgrid
       - soundfile
+      - pyttsx3
+variables:
+  NLTK_DATA: $CONDA_PREFIX/nltk_data
