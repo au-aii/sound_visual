@@ -1,0 +1,16 @@
+name: pa
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - librosa
+  - matplotlib
+  - numpy
+  - scipy
+  - nltk
+  - pyttsx3
+  - pip
+  - pip:
+      - textgrid
+      - soundfile
