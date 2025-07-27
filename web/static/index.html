@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Pitch Analyzer Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Pitch Analyzer Web App</h1>
+            <p>音声ファイルのピッチ分析と発音記号表示</p>
+        </header>
+
+        <main>
+            <!-- ファイルアップロードセクション -->
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>音声ファイルをアップロード</h3>
+                        <p>MP3, WAV, OGG, M4A形式に対応</p>
+                        <input type="file" id="fileInput" accept=".mp3,.wav,.ogg,.m4a" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                            ファイルを選択
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ローディングセクション -->
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>分析中...</p>
+            </section>
+
+            <!-- 結果表示セクション -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>📊 分析結果</h2>
+                    <button class="reset-btn" onclick="resetApp()">新しいファイルを分析</button>
+                </div>
+
+                <div class="results-content">
+                    <!-- 音声プレーヤー -->
+                    <div class="audio-player" id="audioPlayer">
+                        <!-- JavaScriptで動的に音声プレーヤーを追加 -->
+                    </div>
+
+                    <!-- 分析情報 -->
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h3>📝 単語情報</h3>
+                            <div class="info-item">
+                                <label>単語:</label>
+                                <span id="wordText">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>発音記号:</label>
+                                <span id="phoneticText">-</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card">
+                            <h3>📈 ピッチ統計</h3>
+                            <div class="info-item">
+                                <label>平均ピッチ:</label>
+                                <span id="meanPitch">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>ピッチ範囲:</label>
+                                <span id="pitchRange">-</span>
+                            </div>
+                            <div class="info-item">
+                                <label>音声時間:</label>
+                                <span id="duration">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- グラフ表示エリア -->
+                    <div class="plot-container">
+                        <img id="plotImage" src="" alt="ピッチ分析グラフ" style="display: none;">
+                    </div>
+                </div>
+            </section>
+
+            <!-- エラー表示セクション -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-content">
+                    <div class="error-icon">❌</div>
+                    <h3>エラーが発生しました</h3>
+                    <p id="errorMessage">不明なエラーです</p>
+                    <button class="reset-btn" onclick="resetApp()">やり直す</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Pitch Analyzer Web App - Powered by librosa & NLTK</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
