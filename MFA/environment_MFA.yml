@@ -1,0 +1,16 @@
+name: mfa
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - montreal-forced-aligner
+  - numpy
+  - matplotlib
+  - python-tk
+  - tk
+  - librosa
+  - pip
+  - pip:
+    - pyttsx3
+    - textgrid
