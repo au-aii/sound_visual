@@ -1,18 +1,19 @@
-name: pa
+name: flask-app
 channels:
   - conda-forge
   - defaults
 dependencies:
   - python=3.12
-  - librosa
+  - librosa=0.11.0
   - matplotlib
   - numpy
   - scipy
   - nltk
   - pip
   - pip:
-      - textgrid
+      - flask
+      - flask-cors
+      - werkzeug
       - soundfile
-      - pyttsx3
-variables:
-  NLTK_DATA: $CONDA_PREFIX/nltk_data
+      - pydub
+      - python-multipart
