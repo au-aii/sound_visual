@@ -77,10 +77,16 @@ class PitchAnalyzerApp {
             formData.append('file', file);
 
             // サーバーへアップロード
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒タイムアウト
+
             const response = await fetch('/upload', {
                 method: 'POST',
-                body: formData
+                body: formData,
+                signal: controller.signal
             });
+
+            clearTimeout(timeoutId);
 
             const result = await response.json();
 
