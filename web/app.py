@@ -12,10 +12,13 @@ import tempfile
 import json
 from werkzeug.utils import secure_filename
 import traceback
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # CORSを有効化
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB制限
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
+app.config['TIMEOUT'] = 60  # 60秒タイムアウト
 
 # アップロードフォルダの作成
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -214,4 +217,4 @@ def static_files(filename):
     return send_from_directory('static', filename)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)  
+    app.run(debug=False, host='0.0.0.0', port=8080)  
