@@ -16,7 +16,7 @@ conda-meta/
 /.venv/
 
 # Node.js / React 関連
-web/frontend/node_modules/  # パスを修正
+web/frontend/node_modules/
 web/frontend/build/
 web/frontend/.env
 web/frontend/.env.local
