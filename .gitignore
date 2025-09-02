@@ -16,7 +16,7 @@ conda-meta/
 /.venv/
 
 # Node.js / React 関連
-frontend/node modules/
+frontend/node_modules/
 frontend/build/
 frontend/.env
 frontend/.env.local
