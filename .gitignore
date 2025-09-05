@@ -14,3 +14,15 @@ conda-meta/
 # Python仮想環境
 /venv/
 /.venv/
+
+# Node.js / React 関連
+web/frontend/node_modules/
+web/frontend/build/
+web/frontend/.env
+web/frontend/.env.local
+web/frontend/.env.development.local
+web/frontend/.env.test.local
+web/frontend/.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
